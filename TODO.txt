@@ -1,0 +1,2 @@
+set word lists to strings in it's own function
+make defaults for listboxes - throws error if one isn't selected
