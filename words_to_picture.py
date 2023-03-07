@@ -20,7 +20,7 @@ def words_to_picture(OPENAI_API_KEY, word_str):
 
     response_text = response.choices[0]['text']
 
-    with open('C:\\Users\wchance\Desktop\worksheet.txt', 'a') as fp:
+    with open('worksheet.txt', 'a') as fp:
         pass
         fp.write("Words to Pictures\n")
         fp.write(" \n")

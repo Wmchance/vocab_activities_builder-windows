@@ -22,7 +22,7 @@ def fill_in_the_blank_individual_sentences(OPENAI_API_KEY, word_str):
     # add spaces blanks to text manually so that ChatGPT is relied on for this part
     # add a word bank
 
-    with open('C:\\Users\wchance\Desktop\worksheet.txt', 'a') as fp:
+    with open('worksheet.txt', 'a') as fp:
         pass
         fp.write("Fill-in-the-Blank: Sentences\n")
         fp.write(" \n")

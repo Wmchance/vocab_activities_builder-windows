@@ -23,7 +23,7 @@ def questions_with_vocab_answers(OPENAI_API_KEY, word_str):
 
     response_text = response.choices[0]['text']
 
-    with open('C:\\Users\wchance\Desktop\worksheet.txt', 'a') as fp:
+    with open('worksheet.txt', 'a') as fp:
         pass
         fp.write("Answer with Vocab\n")
         fp.write(" \n")
