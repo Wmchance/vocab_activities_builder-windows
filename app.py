@@ -10,6 +10,12 @@ from fill_in_the_blank_short_story import *
 from questions_with_vocab_answers import *
 from scrambled_sentences import *
 from words_to_picture import *
+from fill_in_the_blank_coversation import *
+from finish_the_conversation import *
+from match_words_to_definitions import *
+from new_sentences_same_meaning import *
+from questions_with_vocab_words import *
+from words_to_drawings import *
 
 class WS_builder:
     def __init__(self, master):
@@ -184,6 +190,12 @@ class WS_builder:
         self.activity_listbox.insert(1, " Answer Questions with Vocab")
         self.activity_listbox.insert(1, " Scrambled Sentences")
         self.activity_listbox.insert(1, " Draw pictures based on words")
+        self.activity_listbox.insert(1, " Fill-in-the-blank: Conversation")
+        self.activity_listbox.insert(1, " Finish the Conversation")
+        self.activity_listbox.insert(1, " Match Vocab to Definitions")
+        self.activity_listbox.insert(1, " New sentences with the same meanings")
+        self.activity_listbox.insert(1, " Questions using vocab words")
+        self.activity_listbox.insert(1, " Words to Drawings")
 
         # set grid location (within listboxes_frame) of listboxes
         self.unit_listbox.grid(row=0, column=0, sticky='ew')
@@ -289,6 +301,18 @@ class WS_builder:
                 scrambled_sentences(OPENAI_API_KEY, chosen_word_str)
             elif activity_chosen == ' Draw pictures based on words':
                 words_to_picture(OPENAI_API_KEY, chosen_word_str)
+            elif activity_chosen == ' Fill-in-the-blank: Conversation':
+                fill_in_the_blank_conversation(OPENAI_API_KEY, chosen_word_str)
+            elif activity_chosen == ' Finish the Conversation':
+                finish_the_conversation(OPENAI_API_KEY, chosen_word_str)
+            elif activity_chosen == ' Match Vocab to Definitions':
+                match_words_to_definitions(OPENAI_API_KEY, chosen_word_str)
+            elif activity_chosen == ' New sentences with the same meanings':
+                new_sentences_same_meaning(OPENAI_API_KEY, chosen_word_str)
+            elif activity_chosen == ' Questions using vocab words':
+                questions_with_vocab_words(OPENAI_API_KEY, chosen_word_str)
+            elif activity_chosen == ' Words to Drawings':
+                words_to_drawings(OPENAI_API_KEY, chosen_word_str)
 
         # call function that makes API call with chosen word str & activity
         selected_activity_build(activity_itm)
