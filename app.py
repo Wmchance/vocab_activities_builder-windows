@@ -4,6 +4,7 @@ from tkinter import *
 from env_variable import OPENAI_API_KEY
 from word_lists import *
 from build_chosen_word_str import *
+from get_output_destination_path import *
 
 from fill_in_the_blank_individual_sentences import *
 from fill_in_the_blank_short_story import *
@@ -292,27 +293,27 @@ class WS_builder:
         # get function with prompt needed for chosen activity
         def selected_activity_build(activity_chosen):
             if activity_chosen == ' Fill-in-the-blank: Sentences':
-                fill_in_the_blank_individual_sentences(OPENAI_API_KEY, chosen_word_str)
+                fill_in_the_blank_individual_sentences(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Fill-in-the-blank: Short Story':
-                fill_in_the_blank_short_story(OPENAI_API_KEY, chosen_word_str)
+                fill_in_the_blank_short_story(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Answer Questions with Vocab':
-                questions_with_vocab_answers(OPENAI_API_KEY, chosen_word_str)
+                questions_with_vocab_answers(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Scrambled Sentences':
-                scrambled_sentences(OPENAI_API_KEY, chosen_word_str)
+                scrambled_sentences(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Draw pictures based on words':
-                words_to_picture(OPENAI_API_KEY, chosen_word_str)
+                words_to_picture(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Fill-in-the-blank: Conversation':
-                fill_in_the_blank_conversation(OPENAI_API_KEY, chosen_word_str)
+                fill_in_the_blank_conversation(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Finish the Conversation':
-                finish_the_conversation(OPENAI_API_KEY, chosen_word_str)
+                finish_the_conversation(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Match Vocab to Definitions':
-                match_words_to_definitions(OPENAI_API_KEY, chosen_word_str)
+                match_words_to_definitions(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' New sentences with the same meanings':
-                new_sentences_same_meaning(OPENAI_API_KEY, chosen_word_str)
+                new_sentences_same_meaning(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Questions using vocab words':
-                questions_with_vocab_words(OPENAI_API_KEY, chosen_word_str)
+                questions_with_vocab_words(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Words to Drawings':
-                words_to_drawings(OPENAI_API_KEY, chosen_word_str)
+                words_to_drawings(OPENAI_API_KEY, chosen_word_str, destination_path())
 
         # call function that makes API call with chosen word str & activity
         selected_activity_build(activity_itm)

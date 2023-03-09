@@ -1,7 +1,7 @@
 import os
 import openai
 
-def fill_in_the_blank_conversation(OPEN_API_KEY, word_str):
+def fill_in_the_blank_conversation(OPEN_API_KEY, word_str, destination_path):
 
     openai.api_key = OPEN_API_KEY
 
@@ -20,7 +20,7 @@ def fill_in_the_blank_conversation(OPEN_API_KEY, word_str):
 
     response_text = response.choices[0]['text']
 
-    with open('worksheet.txt', 'a') as fp:
+    with open(destination_path, 'a') as fp:
         pass
         fp.write("Fill-in-the-Blank: Conversation\n")
         fp.write(" \n")

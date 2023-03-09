@@ -1,7 +1,7 @@
 import os
 import openai
 
-def scrambled_sentences(OPENAI_API_KEY, word_str):
+def scrambled_sentences(OPENAI_API_KEY, word_str, destination_path):
     openai.api_key = OPENAI_API_KEY
 
     response = openai.Completion.create(
@@ -21,7 +21,7 @@ def scrambled_sentences(OPENAI_API_KEY, word_str):
     # add spaces blanks to text manually so that ChatGPT is relied on for this part
     # add a word bank
 
-    with open('worksheet.txt', 'a') as fp:
+    with open(destination_path, 'a') as fp:
         pass
         fp.write("Scrambled Sentences\n")
         fp.write(" \n")

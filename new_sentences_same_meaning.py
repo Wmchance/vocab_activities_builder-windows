@@ -1,7 +1,7 @@
 import os
 import openai
 
-def new_sentences_same_meaning(OPENAI_API_KEY, word_str):
+def new_sentences_same_meaning(OPENAI_API_KEY, word_str, destination_path):
 
     openai.api_key = OPENAI_API_KEY
 
@@ -18,7 +18,7 @@ def new_sentences_same_meaning(OPENAI_API_KEY, word_str):
     # add spaces blanks to text manually so that ChatGPT is relied on for this part
     # add a word bank
 
-    with open('worksheet.txt', 'a') as fp:
+    with open(destination_path, 'a') as fp:
         pass
         fp.write("New Sentences with the Same Meaning\n")
         fp.write(" \n")

@@ -1,7 +1,7 @@
 import os
 import openai
 
-def finish_the_conversation(OPENAI_API_KEY, word_str):
+def finish_the_conversation(OPENAI_API_KEY, word_str, destination_path):
 
     openai.api_key = OPENAI_API_KEY
 
@@ -20,7 +20,7 @@ def finish_the_conversation(OPENAI_API_KEY, word_str):
     # add spaces blanks to text manually so that ChatGPT is relied on for this part
     # add a word bank
 
-    with open('worksheet.txt', 'a') as fp:
+    with open(destination_path, 'a') as fp:
         pass
         fp.write("Finish the Conversation\n")
         fp.write(" \n")

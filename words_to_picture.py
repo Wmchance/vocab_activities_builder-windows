@@ -1,7 +1,7 @@
 import os
 import openai
 
-def words_to_picture(OPENAI_API_KEY, word_str):
+def words_to_picture(OPENAI_API_KEY, word_str, destination_path):
     
     openai.api_key = OPENAI_API_KEY
 
@@ -20,7 +20,7 @@ def words_to_picture(OPENAI_API_KEY, word_str):
 
     response_text = response.choices[0]['text']
 
-    with open('worksheet.txt', 'a') as fp:
+    with open(destination_path, 'a') as fp:
         pass
         fp.write("Words to Pictures\n")
         fp.write(" \n")
