@@ -16,7 +16,6 @@ from finish_the_conversation import *
 from match_words_to_definitions import *
 from new_sentences_same_meaning import *
 from questions_with_vocab_words import *
-from words_to_drawings import *
 
 class WS_builder:
     def __init__(self, master):
@@ -196,7 +195,6 @@ class WS_builder:
         self.activity_listbox.insert(1, " Match Vocab to Definitions")
         self.activity_listbox.insert(1, " New sentences with the same meanings")
         self.activity_listbox.insert(1, " Questions using vocab words")
-        self.activity_listbox.insert(1, " Words to Drawings")
 
         # set grid location (within listboxes_frame) of listboxes
         self.unit_listbox.grid(row=0, column=0, sticky='ew')
@@ -312,8 +310,6 @@ class WS_builder:
                 new_sentences_same_meaning(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Questions using vocab words':
                 questions_with_vocab_words(OPENAI_API_KEY, chosen_word_str, destination_path())
-            elif activity_chosen == ' Words to Drawings':
-                words_to_drawings(OPENAI_API_KEY, chosen_word_str, destination_path())
 
         # call function that makes API call with chosen word str & activity
         selected_activity_build(activity_itm)
