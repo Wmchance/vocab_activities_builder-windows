@@ -7,7 +7,11 @@ def finish_the_conversation(OPENAI_API_KEY, word_str, destination_path):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=f"Key words and phrases: {word_str}. \nCreate a horizontal word list using the key words. Add the text 'Word Bank:' above the word list.\n\nTopic: travel.\nCreate a two-sentence coversation between two people using the above topic.\nDon't use the key words in the conversation.\n\nAdd instructions telling the reader to complete the conversation using the words from the word list. ",
+        prompt=f'''Key words and phrases: {word_str}.\n
+        Topic: travel.\n
+        Create a two-sentence coversation between two people using the above topic.\n
+        Don't use the key words in the conversation.\n
+        ''',
         temperature=0.7,
         max_tokens=2061,
         top_p=1,
@@ -24,7 +28,22 @@ def finish_the_conversation(OPENAI_API_KEY, word_str, destination_path):
         pass
         fp.write("Finish the Conversation\n")
         fp.write(" \n")
+        fp.write("Word Bank:\n")
+        fp.write(f'{word_str}\n')
+        fp.write(" \n")
+        fp.write("Instructions: Use the words above to finish the conversation below\n")
+        fp.write(" \n")
         fp.write(f'{response_text}\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
+        fp.write('________________________________________________________________________________\n')
         fp.write(' \n')
         fp.write('--------------------------------------------------------------------------------\n')
         fp.write(' \n')
