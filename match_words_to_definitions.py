@@ -7,7 +7,11 @@ def match_words_to_definitions(OPENAI_API_KEY, word_str, destination_path):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=f"Key words and phrases: {word_str}. \n\nPut each of the above words in a box. Make the box horizontal. Add the text 'Word Bank:' above the box.\n\nWrite instructions telling students to \"match the key words to the definitions'.\n\nWrite definitions for each of the key words using CEFR A2 level English.\nPut the definitions in a separate section below the word bank. \nRemove the key words from the definitions. Add a small underlined empty space after each definition.",
+        prompt=f'''Key words and phrases: {word_str}.
+        \nWrite definitions for each of the key words without using the key words in the definition.
+        \nUse CEFR A2 level English to write the definitions.
+        \nAdd a long underlined empty space after each definition.
+        ''',
         temperature=0.69,
         max_tokens=2015,
         top_p=1,
@@ -23,6 +27,11 @@ def match_words_to_definitions(OPENAI_API_KEY, word_str, destination_path):
     with open(destination_path, 'a') as fp:
         pass
         fp.write("Match Words to Definitions\n")
+        fp.write(" \n")
+        fp.write("Word Bank:\n")
+        fp.write(f'{word_str}\n')
+        fp.write(" \n")
+        fp.write("Instructions: Match the above words to the definitions below\n")
         fp.write(" \n")
         fp.write(f'{response_text}\n')
         fp.write(' \n')
