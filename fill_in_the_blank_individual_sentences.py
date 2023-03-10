@@ -26,6 +26,11 @@ def fill_in_the_blank_individual_sentences(OPENAI_API_KEY, word_str, destination
         pass
         fp.write("Fill-in-the-Blank: Sentences\n")
         fp.write(" \n")
+        fp.write("Word Bank:\n")
+        fp.write(f'{word_str}\n')
+        fp.write(" \n")
+        fp.write("Instructions: Use the words above to fill in the blanks in the sentences below\n")
+        fp.write(" \n")
         fp.write(f'{response_text}\n')
         fp.write(' \n')
         fp.write('--------------------------------------------------------------------------------\n')
