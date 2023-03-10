@@ -7,7 +7,10 @@ def new_sentences_same_meaning(OPENAI_API_KEY, word_str, destination_path):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=f"Key words and phrases: {word_str}.\nTopic: Travel\n\nCreate an activity for esl students that uses the above information to create example sentences for each word and asks students to write new sentences for each of the examples that use different words.\nDon't provide the new sentences for students, but create a blank line for each sentence that they are to create.",
+        prompt=f'''Key words and phrases: {word_str}.
+        \nUse CEFR A2 level English to write one sentence for each of the key words.
+        Below each sentence, add two blank lines.
+        ''',
         temperature=0.5,
         max_tokens=2000,
         top_p=1
@@ -15,12 +18,14 @@ def new_sentences_same_meaning(OPENAI_API_KEY, word_str, destination_path):
 
     response_text = response.choices[0]['text']
 
-    # add spaces blanks to text manually so that ChatGPT is relied on for this part
-    # add a word bank
-
     with open(destination_path, 'a') as fp:
         pass
         fp.write("New Sentences with the Same Meaning\n")
+        fp.write(" \n")
+        fp.write("Word Bank:\n")
+        fp.write(f'{word_str}\n')
+        fp.write(" \n")
+        fp.write("Instructions: For each sentence, write a new sentence that has the same meaning but uses different words.\n")
         fp.write(" \n")
         fp.write(f'{response_text}\n')
         fp.write(' \n')
