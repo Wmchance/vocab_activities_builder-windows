@@ -8,12 +8,10 @@ def questions_with_vocab_answers(OPENAI_API_KEY, word_str, destination_path):
     response = openai.Completion.create(
         model="text-davinci-003", 
         prompt=f'''
-            Make a word bank for the following words: "{word_str}". 
-            Write instructions asking the students to write an answer for each of the questions. 
-            Tell the students that they should use the words from the word bank in their answers.
-            Write an open-ended question for each word in the word bank. 
-            The questions should not contain the words from the word bank. 
-            The questions should be designed so that answers can use the words from the word bank.
+            Key words and phrases: "{word_str}". 
+            Write an open-ended question for each of the key words. 
+            The questions should not contain the key words. 
+            The questions should be designed so that answers can use the key words.
             The questions should be at the CEFR A2 level.
             Do not provide answers to the questions.
             ''', 
@@ -26,6 +24,11 @@ def questions_with_vocab_answers(OPENAI_API_KEY, word_str, destination_path):
     with open(destination_path, 'a') as fp:
         pass
         fp.write("Answer with Vocab\n")
+        fp.write(" \n")
+        fp.write("Word Bank:\n")
+        fp.write(f'{word_str}\n')
+        fp.write(" \n")
+        fp.write("Instructions: Use the words above to answer the questions below\n")
         fp.write(" \n")
         fp.write(f'{response_text}\n')
         fp.write(' \n')
