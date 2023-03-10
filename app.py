@@ -9,7 +9,6 @@ from get_output_destination_path import *
 from fill_in_the_blank_individual_sentences import *
 from fill_in_the_blank_short_story import *
 from questions_with_vocab_answers import *
-from scrambled_sentences import *
 from words_to_picture import *
 from fill_in_the_blank_coversation import *
 from finish_the_conversation import *
@@ -188,7 +187,6 @@ class WS_builder:
         self.activity_listbox.insert(1, " Fill-in-the-blank: Sentences")
         self.activity_listbox.insert(1, " Fill-in-the-blank: Short Story")
         self.activity_listbox.insert(1, " Answer Questions with Vocab")
-        self.activity_listbox.insert(1, " Scrambled Sentences")
         self.activity_listbox.insert(1, " Draw pictures based on words")
         self.activity_listbox.insert(1, " Fill-in-the-blank: Conversation")
         self.activity_listbox.insert(1, " Finish the Conversation")
@@ -296,8 +294,6 @@ class WS_builder:
                 fill_in_the_blank_short_story(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Answer Questions with Vocab':
                 questions_with_vocab_answers(OPENAI_API_KEY, chosen_word_str, destination_path())
-            elif activity_chosen == ' Scrambled Sentences':
-                scrambled_sentences(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Draw pictures based on words':
                 words_to_picture(OPENAI_API_KEY, chosen_word_str, destination_path())
             elif activity_chosen == ' Fill-in-the-blank: Conversation':
